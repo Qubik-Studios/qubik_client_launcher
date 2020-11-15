@@ -22,9 +22,9 @@ lbackground_label = tk.Label(login, image=lbackimg)
 lbackground_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 if debug is False:
-    version = "ui.0.0.1.2.021120 | be.0.0.1.1.121120"
+    version = "ui.0.0.1.7.151120 | be.0.0.1.1.121120"
 else:
-    version = "ui.0.0.1.2.021120 | be.0.0.1.1.121120 | Debug Mode"
+    version = "ui.0.0.1.7.151120 | be.0.0.1.1.121120 | Debug Mode"
 version_label = tk.Label(login, text=version)
 version_label.config(bg="#404040")
 version_label.place(x=0, y=480)

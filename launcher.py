@@ -9,7 +9,7 @@ from tkinter import messagebox
 # variable
 
 version_simple = "Alpha 0.0.1.6"
-version_userinterface = "ui.0.0.1.6.041120"
+version_userinterface = "ui.0.0.1.7.151120"
 version_backend = "be.0.0.1.0.011120"
 version_client = "id.0.0.0.0.000000"
 
