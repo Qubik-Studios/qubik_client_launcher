@@ -15,14 +15,21 @@ loading.iconphoto(False, tk.PhotoImage(file="images/login/logo.png"))
 
 # Create File Directory
 
-
-path = "C:/Qubik Client Data/"
+path_folder = "C:/Qubik Client Data/"
+path_game = '%s\\.QubikClient\\' % os.environ['APPDATA']
 try:
-    os.mkdir(path)
+    os.mkdir(path_folder)
 except OSError:
-    print("Creation of the directory %s failed" % path)
+    print("Creation of the directory %s failed" % path_folder)
 else:
-    print("Successfully created the directory %s " % path)
+    print("Successfully created the directory %s " % path_folder)
+
+try:
+    os.mkdir(path_game)
+except OSError:
+    print("Creation of the directory %s failed" % path_game)
+else:
+    print("Successfully created the directory %s " % path_game)
 
 path_status = "C:/Qubik Client Data/server_status.json"
 

@@ -5,14 +5,12 @@ import subprocess as sub
 import threading
 from tkinter import messagebox
 
-
 # variable
 
 version_simple = "Alpha 0.0.1.6"
 version_userinterface = "ui.0.0.1.7.151120"
-version_backend = "be.0.0.1.0.011120"
+version_backend = "be.0.0.1.3.151120"
 version_client = "id.0.0.0.0.000000"
-
 
 # start of the windwo
 
@@ -71,8 +69,12 @@ def qubikclientweb():
 
 
 def clientstart():
-
     print("Client start")
+    try:
+        sub.call(["start_client.py"])
+    except WindowsError:
+        sub.call(['start_client.py'], shell=True)
+
 
 
 def getversion():

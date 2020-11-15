@@ -63,7 +63,7 @@ def login_check():
         print("Proceed with Login..")
         access_tokenvar = tk.StringVar()
         access_tokenvar.set(ml.account.login_user(username, password))
-        with open(path, "w") as b:
+        with open(data_path, "w") as b:
             b.write("")
         with open(data_path, "w") as i:
             i.write(access_tokenvar.get())
