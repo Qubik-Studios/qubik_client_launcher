@@ -33,14 +33,16 @@ ml.install.install_minecraft_version(version, directory, callback=callback)
 print("Download Finished! Continue with Starting process...")
 data_path = "C:/Qubik Client Data/player_data.json"
 
-verification_data = open(data_path, "r")
-verification = verification_data.read()
-verification_data.close()
-print(verification)
+fo = open(data_path, "r")
+astr = fo.readline()
+astr = astr[0:551]
+fo.close()
+print(astr)
+login_data = astr
 
 options = {
-    "token": verification['accessToken'],
-    "username": verification['selectedProfile']["name"],
-    "uuid": verification['selectedProfile']["id"]
+    "token": login_data['accessToken'],
+    "username": login_data['selectedProfile']["name"],
+    "uuid": login_data['selectedProfile']["id"]
 }
 minecraft_command = ml.command.get_minecraft_command(version, directory, options)
