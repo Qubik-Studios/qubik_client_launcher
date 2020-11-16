@@ -1,5 +1,6 @@
 import minecraft_launcher_lib as ml
 import os
+import subprocess
 
 print("Starting with Download...")
 
@@ -31,18 +32,32 @@ directory = '%s\\.QubikClient\\' % os.environ['APPDATA']
 
 ml.install.install_minecraft_version(version, directory, callback=callback)
 print("Download Finished! Continue with Starting process...")
-data_path = "C:/Qubik Client Data/player_data.json"
 
-fo = open(data_path, "r")
-astr = fo.readline()
-astr = astr[0:551]
-fo.close()
-print(astr)
-login_data = astr
+data_path = "C:/Qubik Client Data/player_data.json"
+at = open(data_path, "r")
+astr = at.readline()
+accessToken = astr[17:325]
+at.close()
+
+nm = open(data_path, "r")
+nmstr = nm.readline()
+name = nmstr[411:420]
+nm.close()
+
+uid = open(data_path, "r")
+usid = uid.readline()
+userid = usid[430:462]
+uid.close()
+
+print(userid)
+print(name)
+
 
 options = {
-    "token": login_data['accessToken'],
-    "username": login_data['selectedProfile']["name"],
-    "uuid": login_data['selectedProfile']["id"]
+    "token": accessToken,
+    "username": name,
+    "uuid": userid
 }
 minecraft_command = ml.command.get_minecraft_command(version, directory, options)
+
+subprocess.call(minecraft_command)

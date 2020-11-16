@@ -60,7 +60,7 @@ loadingbars.start()
 def open_login():
     try:
         sub.call(["login.py"])
-    except WindowsError:
+    except OSError:
         sub.call(['login.py'], shell=True)
 
 
@@ -75,5 +75,5 @@ loading.mainloop()
 
 try:
     sub.call(["discordrp.py"])
-except WindowsError:
+except OSError:
     sub.call(['discordrp.py'], shell=True)
